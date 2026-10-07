@@ -1,18 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My First Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My App</title>
 <style>
-body{ text-align:center; font-family: Arial; margin-top:80px; background:#f5f5f5; }
-h1{ color: #00a651; }
-.box{ background:white; padding:30px; border-radius:15px; display:inline-block; }
+body{margin:0;font-family:Arial;background:#f0f2f5;padding-bottom:65px}
+.header{background:#1877f2;color:white;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
+.header b{font-size:20px}
+.post{background:white;margin:10px;border-radius:10px;padding:15px;box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.section{display:none}
+.section.active{display:block}
+.footer{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:8px 0}
+.footer button{border:none;background:none;font-size:12px;display:flex;flex-direction:column;align-items:center;color:#65676b}
+.footer button.active{color:#1877f2;font-weight:bold}
+.footer span{font-size:22px}
+.btn{padding:8px 15px;border:none;border-radius:6px;background:#1877f2;color:white}
 </style>
 </head>
 <body>
-<div class="box">
-<h1>Assalam-o-Alaikum! 👋</h1>
-<p>Ye meri pehli website hai jo GitHub pe live hai!</p>
-<p>Banane wala: hhaammiidd143</p>
+
+<div class="header">
+<b>hhaammiidd143</b>
+<span>🔔 ☰</span>
 </div>
+
+<div id="home" class="section active">
+  <div class="post"><h3>👋 Welcome!</h3><p>Ye aapki Facebook jaisi website hai.</p></div>
+  <div class="post"><b>Hamid Ali</b><p>Aj maine apni website bana li! 🔥</p><img src="https://picsum.photos/400/200" style="width:100%;border-radius:8px"></div>
+</div>
+
+<div id="about" class="section">
+  <div class="post"><h3>About Me</h3><p>Naam: Hamid<br>Location: Pakistan<br>Kaam: Web Developer</p><button class="btn">Follow</button></div>
+</div>
+
+<div id="menu" class="section">
+  <div class="post"><h3>Menu</h3><p>📄 Pages<br>👥 Friends<br>💾 Saved<br>🎮 Games</p></div>
+</div>
+
+<div id="settings" class="section">
+  <div class="post"><h3>Settings</h3><p>⚙️ Privacy<br>🔒 Security<br>🌙 Dark Mode<br>🚪 Logout</p></div>
+</div>
+
+<div id="profile" class="section">
+  <div class="post" style="text-align:center"><h2>👤</h2><h3>hhaammiidd143</h3><p>0 Following | 100 Followers</p><button class="btn">Edit Profile</button></div>
+</div>
+
+<div class="footer">
+  <button class="active" onclick="openTab('home',this)"><span>🏠</span>Home</button>
+  <button onclick="openTab('about',this)"><span>ℹ️</span>About</button>
+  <button onclick="openTab('menu',this)"><span>☰</span>Menu</button>
+  <button onclick="openTab('settings',this)"><span>⚙️</span>Setting</button>
+  <button onclick="openTab('profile',this)"><span>👤</span>Profile</button>
+</div>
+
+<script>
+function openTab(id, el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.footer button').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  window.scrollTo(0,0);
+}
+</script>
+
 </body>
 </html>
